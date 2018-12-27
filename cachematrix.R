@@ -8,7 +8,7 @@ makeCacheMatrix <- function(x = matrix()) {
         inv <<- NULL
       }
       get <- function() x
-      setInverse <- function() inv <<- solve(x) #calculate the inverse
+      setInverse <- function(inverse) inv <<- inverse #calculate the inverse
       getInverse <- function() inv
       list(set = set, get = get,
            setInverse = setInverse,
@@ -17,7 +17,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## This function is used to calculate the inverse
+## This function is used to calculate the inverse of special matrix 
+## created by makeCacheMatrix above
 ## Using cache, it can save computing power
 
 cacheSolve <- function(x, ...) {
